@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/21 15:44:34 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/21 16:08:35 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ OBJS = $(SRCS:.c=.o)
 $(NAME): $(OBJS)
 	make -C ./libft
 	cp libft/libft.a $(NAME)
-	ar rc $(NAME) $(OBJS)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
