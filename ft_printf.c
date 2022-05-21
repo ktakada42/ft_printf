@@ -1,21 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/21 15:45:16 by ktakada          ###   ########.fr       */
+/*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
+/*   Updated: 2022/05/21 15:47:09 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#include "printf.h"
 
-# include <stdlib.h>
-# include <unistd.h>
+int	ft_printf(const char *fmt, ...)
+{
+	if (fmt == NULL)
+	{
+		return -1;
+	}
+	return 0;
+}
 
-int	ft_printf(const char *fmt, ...);
+#include <stdio.h>
 
-#endif
+int	main(void)
+{
+	int	ret;
+
+	ret = ft_printf(NULL);
+	printf("%d\n", ret);
+	return (0);
+}

@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/21 15:30:29 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/21 15:44:34 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,17 +16,17 @@ CFLAGS = -Wall -Wextra -Werror
 
 NAME = libftprintf.a
 
-SRCS = 
+SRCS = ft_printf.c 
 
-B_SRCS = 
+# B_SRCS = 
 
 OBJS = $(SRCS:.c=.o)
 
-B_OBJS = $(B_SRCS:.c=.o)
+# B_OBJS = $(B_SRCS:.c=.o)
 
-ifeq ($(MAKECMDGOALS), bonus)
-	OBJS += $(B_OBJS)
-endif
+# ifeq ($(MAKECMDGOALS), bonus)
+# 	OBJS += $(B_OBJS)
+# endif
 
 $(NAME): $(OBJS)
 	make -C ./libft
@@ -48,6 +48,6 @@ fclean: clean
 
 re: fclean all
 
-bonus: all
+# bonus: all
 
 .PHONY:	all clean fclean re bonus
