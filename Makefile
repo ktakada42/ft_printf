@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/21 15:10:30 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/21 15:30:29 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ ifeq ($(MAKECMDGOALS), bonus)
 endif
 
 $(NAME): $(OBJS)
+	make -C ./libft
+	cp libft/libft.a $(NAME)
 	ar rc $(NAME) $(OBJS)
 
 %.o: %.c
@@ -37,9 +39,11 @@ $(NAME): $(OBJS)
 all: $(NAME)
 
 clean:
+	make clean -C ./libft
 	rm -f $(OBJS) $(B_OBJS)
 
 fclean: clean
+	make fclean -C ./libft
 	rm -f $(NAME)
 
 re: fclean all
