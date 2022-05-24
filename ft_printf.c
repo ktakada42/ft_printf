@@ -51,6 +51,11 @@ int	ft_printf(const char *fmt, ...)
 			/* { */
 			/* 	arg_i = va_arg(ap, int); */
 			/* } */
+			else if (*fmt == '%')
+			{
+				write(1, fmt, 1);
+				print_count++;
+			}
 			else
 			{
 				return (-1);
@@ -68,7 +73,7 @@ int	main(void)
 {
 	int	ret;
 
-	ret = printf("%c, %c, %c\n", 'a', 'b', 'c');
+	ret = printf("%c, %c, %c, %%\n", 'a', 'b', 'c');
 	printf("%d\n", ret);
 	ret = printf("%s, world!\n", "hello");
 	printf("%d\n", ret);
