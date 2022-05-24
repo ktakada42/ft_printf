@@ -77,5 +77,11 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("%s, world!\n", "hello");
 	printf("%d\n", ret);
+	printf("%s\n", ft_itoa_base(0, 10));
+	printf("%s\n", ft_itoa_base(2147483647, 10));
+	printf("%s\n", ft_itoa_base(-2147483648, 10));
+	printf("%s\n", ft_itoa_base(0, 16));
+	printf("%s\n", ft_itoa_base(2147483647, 16));
+	printf("%s\n", ft_itoa_base(-2147483648, 16));
 	return (0);
 }
