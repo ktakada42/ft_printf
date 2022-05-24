@@ -16,8 +16,7 @@ int	ft_printf(const char *fmt, ...)
 {
 	va_list	ap;
 	int		print_count;
-	char	arg_c;
-	char	*arg_s;
+	char	*arg;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -33,28 +32,28 @@ int	ft_printf(const char *fmt, ...)
 			fmt++;
 			if (*fmt == 'c')
 			{
-				arg_c = (char)va_arg(ap, int);
-				write(1, &arg_c, 1);
+				arg = va_arg(ap, char *);
+				write(1, arg, 1);
 				print_count++;
 			}
 			else if (*fmt == 's')
 			{
-				arg_s = va_arg(ap, char *);
-				while (*arg_s != '\0')
+				arg = va_arg(ap, char *);
+				while (*arg != '\0')
 				{
-					write(1, arg_s, 1);
+					write(1, arg, 1);
 					print_count++;
-					arg_s++;
+					arg++;
 				}
 			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
-				arg_s = ft_itoa_base(va_arg(ap, int), 10);
-				while (*arg_s != '\0')
+				arg = ft_itoa_base(va_arg(ap, int), 10);
+				while (*arg != '\0')
 				{
-					write(1, arg_s, 1);
+					write(1, arg, 1);
 					print_count++;
-					arg_s++;
+					arg++;
 				}
 			}
 			/* else if (*fmt == 'u') */
@@ -63,23 +62,23 @@ int	ft_printf(const char *fmt, ...)
 			/* } */
 			else if (*fmt == 'x')
 			{
-				arg_s = ft_itoa_base(va_arg(ap, int), 16);
-				while (*arg_s != '\0')
+				arg = ft_itoa_base(va_arg(ap, int), 16);
+				while (*arg != '\0')
 				{
-					write(1, arg_s, 1);
+					write(1, arg, 1);
 					print_count++;
-					arg_s++;
+					arg++;
 				}
 			}
 			else if (*fmt == 'X')
 			{
-				arg_s = ft_itoa_base(va_arg(ap, int), 16);
-				arg_s = ft_toupper_string(arg_s);
-				while (*arg_s != '\0')
+				arg = ft_itoa_base(va_arg(ap, int), 16);
+				arg = ft_toupper_string(arg);
+				while (*arg != '\0')
 				{
-					write(1, arg_s, 1);
+					write(1, arg, 1);
 					print_count++;
-					arg_s++;
+					arg++;
 				}
 			}
 			else if (*fmt == '%')
