@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/24 22:05:09 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/24 22:13:24 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ CFLAGS = -Wall -Wextra -Werror
 NAME = libftprintf.a
 
 SRCS = ft_printf.c \
+	ft_ctos.c \
 	ft_itoa_base.c \
 	ft_uitoa.c \
 	ft_toupper_string.c \
