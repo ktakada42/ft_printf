@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/24 22:12:32 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/24 23:13:25 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ char	*ft_itoa_base(int n, int base);
 char	*ft_uitoa(unsigned int n);
 char	*ft_toupper_string(char	*str);
 int		ft_printstr(char *str, int print_count);
+char	*ft_join_address(char const *address);
 
 #endif

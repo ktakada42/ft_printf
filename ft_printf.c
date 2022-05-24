@@ -14,9 +14,10 @@
 
 int	ft_printf(const char *fmt, ...)
 {
-	va_list	ap;
-	int		print_count;
-	char	*arg;
+	va_list		ap;
+	int			print_count;
+	char		*arg;
+	intptr_t	address;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -47,7 +48,9 @@ int	ft_printf(const char *fmt, ...)
 			}
 			else if (*fmt == 'p')
 			{
-				arg = va_arg(ap, char *);
+				address = (intptr_t)va_arg(ap, void *);
+				arg = ft_itoa_base(address, 16);
+				arg = ft_join_address(arg);
 				while (*arg != '\0')
 				{
 					write(1, arg, 1);
@@ -116,25 +119,32 @@ int	ft_printf(const char *fmt, ...)
 
 int	main(void)
 {
-	ft_printf("%s, world!\n", "hello");
+	int	  ret = 0;
+	char  *str = "Hello";
+
 	ft_printf("%c, %c, %c, %%\n", 'a', 'b', 'c');
+	ft_printf("%s, world!\n", "hello");
+	ft_printf("ft: %p\n", &ret);
+	printf("or: %p\n", &ret);
+	ft_printf("ft: %p\n", str);
+	printf("or: %p\n", str);
 	ft_printf("%d\n", 0);
 	ft_printf("%i\n", 0);
 	ft_printf("%d\n", 2147483647);
 	ft_printf("%i\n", 2147483647);
 	ft_printf("%d\n", -2147483648);
 	ft_printf("%i\n", -2147483648);
+	ft_printf("%u\n", 0);
+	ft_printf("4294967295: %u\n", -1);
+	ft_printf("%u\n", 2147483647);
+	ft_printf("2147483648: %u\n", -2147483648);
+	ft_printf("%u\n", 4294967295);
 	ft_printf("%x\n", 0);
 	ft_printf("%X\n", 0);
 	ft_printf("%x\n", 2147483647);
 	ft_printf("%X\n", 2147483647);
 	ft_printf("%x\n", -2147483648);
 	ft_printf("%X\n", -2147483648);
-	ft_printf("%u\n", 0);
-	ft_printf("4294967295: %u\n", -1);
-	ft_printf("%u\n", 2147483647);
-	ft_printf("2147483648: %u\n", -2147483648);
-	ft_printf("%u\n", 4294967295);
 	system("leaks -q a.out");
 	return (0);
 }
