@@ -10,6 +10,7 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -17,7 +18,6 @@ int	ft_printf(const char *fmt, ...)
 	int		print_count;
 	char	arg_c;
 	char	*arg_s;
-	/* int		arg_i; */
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -47,10 +47,41 @@ int	ft_printf(const char *fmt, ...)
 					arg_s++;
 				}
 			}
-			/* else if (*fmt == 'd' || *fmt == 'u') */
+			else if (*fmt == 'd' || *fmt == 'i')
+			{
+				arg_s = ft_itoa_base(va_arg(ap, int), 10);
+				while (*arg_s != '\0')
+				{
+					write(1, arg_s, 1);
+					print_count++;
+					arg_s++;
+				}
+			}
+			/* else if (*fmt == 'u') */
 			/* { */
-			/* 	arg_i = va_arg(ap, int); */
+
 			/* } */
+			else if (*fmt == 'x')
+			{
+				arg_s = ft_itoa_base(va_arg(ap, int), 16);
+				while (*arg_s != '\0')
+				{
+					write(1, arg_s, 1);
+					print_count++;
+					arg_s++;
+				}
+			}
+			else if (*fmt == 'X')
+			{
+				arg_s = ft_itoa_base(va_arg(ap, int), 16);
+				arg_s = ft_toupper_string(arg_s);
+				while (*arg_s != '\0')
+				{
+					write(1, arg_s, 1);
+					print_count++;
+					arg_s++;
+				}
+			}
 			else if (*fmt == '%')
 			{
 				write(1, fmt, 1);
@@ -77,11 +108,17 @@ int	main(void)
 	printf("%d\n", ret);
 	ret = printf("%s, world!\n", "hello");
 	printf("%d\n", ret);
-	printf("%s\n", ft_itoa_base(0, 10));
-	printf("%s\n", ft_itoa_base(2147483647, 10));
-	printf("%s\n", ft_itoa_base(-2147483648, 10));
-	printf("%s\n", ft_itoa_base(0, 16));
-	printf("%s\n", ft_itoa_base(2147483647, 16));
-	printf("%s\n", ft_itoa_base(-2147483648, 16));
+	ft_printf("%d\n", 0);
+	ft_printf("%i\n", 0);
+	ft_printf("%d\n", 2147483647);
+	ft_printf("%i\n", 2147483647);
+	ft_printf("%d\n", -2147483648);
+	ft_printf("%i\n", -2147483648);
+	ft_printf("%x\n", 0);
+	ft_printf("%X\n", 0);
+	ft_printf("%x\n", 2147483647);
+	ft_printf("%X\n", 2147483647);
+	ft_printf("%x\n", -2147483648);
+	ft_printf("%X\n", -2147483648);
 	return (0);
 }

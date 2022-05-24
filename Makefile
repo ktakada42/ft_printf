@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/24 16:06:17 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/24 16:21:31 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libftprintf.a
 
 SRCS = ft_printf.c \
 	ft_itoa_base.c \
-
+	ft_toupper_string.c \
 # B_SRCS = 
 
 OBJS = $(SRCS:.c=.o)
