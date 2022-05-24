@@ -17,6 +17,7 @@ int	ft_printf(const char *fmt, ...)
 	va_list	ap;
 	int		print_count;
 	char	*arg;
+	char	arg_c;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -32,8 +33,8 @@ int	ft_printf(const char *fmt, ...)
 			fmt++;
 			if (*fmt == 'c')
 			{
-				arg = va_arg(ap, char *);
-				write(1, arg, 1);
+				arg_c = (char)va_arg(ap, int);
+				write(1, &arg_c, 1);
 				print_count++;
 			}
 			else if (*fmt == 's')
@@ -119,28 +120,28 @@ int	main(void)
 {
 	int	ret;
 
-	ret = printf("%c, %c, %c, %%\n", 'a', 'b', 'c');
-	printf("%d\n", ret);
-	ret = printf("%s, world!\n", "hello");
-	printf("%d\n", ret);
-	printf("%p\n", &ret);
-	ft_printf("%p\n", &ret);
-	ft_printf("%d\n", 0);
-	ft_printf("%i\n", 0);
-	ft_printf("%d\n", 2147483647);
-	ft_printf("%i\n", 2147483647);
-	ft_printf("%d\n", -2147483648);
-	ft_printf("%i\n", -2147483648);
-	ft_printf("%x\n", 0);
-	ft_printf("%X\n", 0);
-	ft_printf("%x\n", 2147483647);
-	ft_printf("%X\n", 2147483647);
-	ft_printf("%x\n", -2147483648);
-	ft_printf("%X\n", -2147483648);
-	ft_printf("%u\n", 0);
-	ft_printf("4294967295: %u\n", -1);
-	ft_printf("%u\n", 2147483647);
-	ft_printf("2147483648: %u\n", -2147483648);
-	ft_printf("%u\n", 4294967295);
+	ret = ft_printf("%c, %c, %c, %%\n", 'a', 'b', 'c');
+	ft_printf("%d\n", ret);
+	/* ret = printf("%s, world!\n", "hello"); */
+	/* printf("%d\n", ret); */
+	/* printf("%p\n", &ret); */
+	/* ft_printf("%p\n", &ret); */
+	/* ft_printf("%d\n", 0); */
+	/* ft_printf("%i\n", 0); */
+	/* ft_printf("%d\n", 2147483647); */
+	/* ft_printf("%i\n", 2147483647); */
+	/* ft_printf("%d\n", -2147483648); */
+	/* ft_printf("%i\n", -2147483648); */
+	/* ft_printf("%x\n", 0); */
+	/* ft_printf("%X\n", 0); */
+	/* ft_printf("%x\n", 2147483647); */
+	/* ft_printf("%X\n", 2147483647); */
+	/* ft_printf("%x\n", -2147483648); */
+	/* ft_printf("%X\n", -2147483648); */
+	/* ft_printf("%u\n", 0); */
+	/* ft_printf("4294967295: %u\n", -1); */
+	/* ft_printf("%u\n", 2147483647); */
+	/* ft_printf("2147483648: %u\n", -2147483648); */
+	/* ft_printf("%u\n", 4294967295); */
 	return (0);
 }

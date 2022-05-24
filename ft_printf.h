@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/24 21:34:54 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/24 22:04:17 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,6 @@ int		ft_printf(const char *fmt, ...);
 char	*ft_itoa_base(int n, int base);
 char	*ft_uitoa(unsigned int n);
 char	*ft_toupper_string(char	*str);
+int		ft_printstr(char *str, int print_count);
 
 #endif
