@@ -128,6 +128,8 @@ int	main(void)
 	printf("or: %p\n", &ret);
 	ft_printf("ft: %p\n", str);
 	printf("or: %p\n", str);
+	ft_printf("ft: %p\n", &str);
+	printf("or: %p\n", &str);
 	ft_printf("%d\n", 0);
 	ft_printf("%i\n", 0);
 	ft_printf("%d\n", 2147483647);
