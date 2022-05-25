@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/24 23:13:25 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/25 17:46:32 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct s_flag
 }	t_flag;
 
 int		ft_printf(const char *fmt, ...);
-char	*ft_ctos(char c);
 char	*ft_itoa_base(int n, int base);
 char	*ft_uitoa(unsigned int n);
 char	*ft_toupper_string(char	*str);

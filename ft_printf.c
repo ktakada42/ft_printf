@@ -18,6 +18,7 @@ int	ft_printf(const char *fmt, ...)
 	int			print_count;
 	char		*arg;
 	intptr_t	address;
+	char		arg_c;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -33,9 +34,9 @@ int	ft_printf(const char *fmt, ...)
 			fmt++;
 			if (*fmt == 'c')
 			{
-				arg = ft_ctos(va_arg(ap, int));
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
+				arg_c = va_arg(ap, int);
+				write(1, &arg_c, 1);
+				print_count++;
 			}
 			else if (*fmt == 's')
 			{
