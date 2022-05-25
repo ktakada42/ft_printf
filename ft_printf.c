@@ -40,6 +40,8 @@ int	ft_printf(const char *fmt, ...)
 			else if (*fmt == 's')
 			{
 				arg = va_arg(ap, char *);
+				if (arg == NULL)
+					arg = (char *)"(null)";
 				print_count = ft_printstr(arg, print_count);
 			}
 			else if (*fmt == 'p')
@@ -95,11 +97,14 @@ int	ft_printf(const char *fmt, ...)
 
 /* int	main(void) */
 /* { */
+/* 	char  *a = NULL; */
 /* 	int	  ret = 0; */
 /* 	char  *str = "Hello"; */
 
 /* 	ft_printf("%c, %c, %c, %%\n", 'a', 'b', 'c'); */
 /* 	ft_printf("%s, world!\n", "hello"); */
+/* 	ft_printf("%s\n", NULL); */
+/* 	printf("%s\n", a); */
 /* 	ft_printf("ft: %p\n", &ret); */
 /* 	printf("or: %p\n", &ret); */
 /* 	ft_printf("ft: %p\n", str); */
