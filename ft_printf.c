@@ -55,7 +55,7 @@ int	ft_printf(const char *fmt, ...)
 			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
-				arg = ft_itoa_base(va_arg(ap, int), 10);
+				arg = ft_itoa(va_arg(ap, int));
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
 			}
