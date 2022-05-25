@@ -19,6 +19,7 @@ int	ft_printf(const char *fmt, ...)
 	char		*arg;
 	intptr_t	address;
 	char		arg_c;
+	char		*arg_to_free;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -74,9 +75,11 @@ int	ft_printf(const char *fmt, ...)
 			else if (*fmt == 'X')
 			{
 				arg = ft_itoa_base(va_arg(ap, int), 16);
+				arg_to_free = arg;
 				arg = ft_toupper_string(arg);
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
+				free(arg_to_free);
 			}
 			else if (*fmt == '%')
 			{
