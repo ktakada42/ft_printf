@@ -6,31 +6,30 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/25 17:46:25 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/25 21:28:50 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+NAME := libftprintf.a
 
-CFLAGS = -Wall -Wextra -Werror
+CC := cc
 
-NAME = libftprintf.a
+CFLAGS := -Wall -Wextra -Werror
 
-SRCS = ft_printf.c \
+INCLUDESDIR := ./includes
+
+SRCSDIR := ./src/
+
+SRCS := ft_printf.c \
 	ft_itoa_base.c \
 	ft_uitoa.c \
 	ft_toupper_string.c \
 	ft_printstr.c \
 	ft_join_address.c \
-# B_SRCS = 
 
-OBJS = $(SRCS:.c=.o)
+SRCS := $(addprefix $(SRCSDIR), $(SRCS))
 
-# B_OBJS = $(B_SRCS:.c=.o)
-
-# ifeq ($(MAKECMDGOALS), bonus)
-# 	OBJS += $(B_OBJS)
-# endif
+OBJS := $(SRCS:.c=.o)
 
 $(NAME): $(OBJS)
 	make -C ./libft
@@ -38,13 +37,13 @@ $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INCLUDESDIR) -c $< -o $@
 
 all: $(NAME)
 
 clean:
 	make clean -C ./libft
-	rm -f $(OBJS) $(B_OBJS)
+	rm -f $(OBJS)
 
 fclean: clean
 	make fclean -C ./libft
@@ -52,6 +51,4 @@ fclean: clean
 
 re: fclean all
 
-# bonus: all
-
-.PHONY:	all clean fclean re bonus
+.PHONY:	all clean fclean re
