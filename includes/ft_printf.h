@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/25 21:06:51 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:58:41 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "../libft/libft.h"
+# include "../libft/includes/libft.h"
 
 typedef struct s_flag
 {

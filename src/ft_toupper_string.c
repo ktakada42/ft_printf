@@ -6,12 +6,11 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 16:17:41 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/25 21:23:46 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:59:26 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
 char	*ft_toupper_string(char	*str)
 {

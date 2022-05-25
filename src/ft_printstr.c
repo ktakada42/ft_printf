@@ -6,12 +6,11 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 21:54:16 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/25 21:23:38 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:59:17 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
 int	ft_printstr(char *str, int print_count)
 {

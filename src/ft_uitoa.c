@@ -6,12 +6,11 @@
 /*   By: ktaka <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 01:46:32 by ktaka             #+#    #+#             */
-/*   Updated: 2022/05/25 21:23:33 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/25 23:59:35 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
 static size_t	count_digit(unsigned int n);
 
