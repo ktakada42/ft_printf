@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/26 15:48:15 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 17:08:46 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_printf(const char *fmt, ...)
 	va_list		ap;
 	int			print_count;
 	char		*arg;
-	/* int64_t		address; */
+	int64_t		address;
 	char		arg_c;
 	char		*arg_to_free;
 
@@ -44,10 +44,14 @@ int	ft_printf(const char *fmt, ...)
 					arg = (char *)"(null)";
 				print_count = ft_printstr(arg, print_count);
 			}
-			/* else if (*fmt == 'p') */
-			/* { */
-			/* 	address = (int64_t)va_arg(ap, void *); */
-			/* } */
+			else if (*fmt == 'p')
+			{
+				address = (int64_t)va_arg(ap, void *);
+				arg = ft_int64tohex(address);
+				print_count = ft_printstr("0x", print_count);
+				print_count = ft_printstr(arg, print_count);
+				free(arg);
+			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
 				arg = ft_itoa(va_arg(ap, int));
