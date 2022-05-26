@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/26 17:05:22 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/26 17:13:58 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ SRCS := ft_printf.c \
 	ft_uitoa_base.c \
 	ft_toupper_string.c \
 	ft_printstr.c \
-	ft_join_address.c \
 	ft_int64tohex.c \
 
 SRCS := $(addprefix $(SRCSDIR), $(SRCS))
