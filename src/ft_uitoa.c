@@ -6,7 +6,7 @@
 /*   By: ktaka <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 01:46:32 by ktaka             #+#    #+#             */
-/*   Updated: 2022/05/25 23:59:35 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 14:49:18 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ size_t	count_digit(unsigned int n)
 	count = 1;
 	while (n >= 10)
 	{
-		n/= 10;
+		n /= 10;
 		count++;
 	}
 	return (count);
