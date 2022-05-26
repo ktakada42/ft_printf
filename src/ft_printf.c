@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/26 14:52:54 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:23:40 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_printf(const char *fmt, ...)
 	va_list		ap;
 	int			print_count;
 	char		*arg;
-	intptr_t	address;
+	uint64_t	address;
 	char		arg_c;
 	char		*arg_to_free;
 
@@ -45,13 +45,11 @@ int	ft_printf(const char *fmt, ...)
 			}
 			else if (*fmt == 'p')
 			{
-				address = (intptr_t)va_arg(ap, void *);
+				address = (uint64_t)va_arg(ap, void *);
 				arg = ft_itoa_base(address, 16);
-				arg_to_free = arg;
-				arg = ft_join_address(arg);
+				print_count = ft_printstr("0x", print_count);
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
-				free(arg_to_free);
 			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
@@ -91,10 +89,45 @@ int	ft_printf(const char *fmt, ...)
 	return (print_count);
 }
 
-/* #include <stdio.h> */
+#include <stdio.h>
 
-/* int	main(void) */
-/* { */
+int	main(void)
+{
+	int	*p;
+	int	*q;
+	p = (int*)-1;
+
+	printf("or: %p \n", p);
+	ft_printf("ft: %p \n", p);
+	p = (int*)1;
+	printf("or: %p \n", p);
+	ft_printf("ft: %p \n", p);
+	p = (int*)15;
+	printf("or: %p \n", p);
+	ft_printf("ft: %p \n", p);
+	p = (int*)16;
+	printf("or: %p \n", p);
+	ft_printf("ft: %p \n", p);
+	p = (int*)17;
+	printf("or: %p \n", p);
+	ft_printf("ft: %p \n", p);
+	p = (int*)LONG_MIN;
+	q = (int*)LONG_MAX;
+	printf("or: %p %p \n", p, q);
+	ft_printf("ft: %p %p \n", p, q);
+	p = (int*)INT_MIN;
+	q = (int*)INT_MAX;
+	printf("or: %p %p \n", p, q);
+	ft_printf("ft: %p %p \n", p, q);
+	p = (int*)ULONG_MAX;
+	q = (int*)-ULONG_MAX;
+	printf("or: %p %p \n", p, q);
+	ft_printf("ft: %p %p \n", p, q);
+	p = (int*)0;
+	q = (int*)0;
+	printf("or: %p %p \n", p, q);
+	ft_printf("ft: %p %p \n", p, q);
+}
 /* 	char  *a = NULL; */
 /* 	int	  ret = 0; */
 /* 	char  *str = "Hello"; */
