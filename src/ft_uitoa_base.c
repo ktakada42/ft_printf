@@ -1,60 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_uitoa.c                                         :+:      :+:    :+:   */
+/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktaka <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/28 01:46:32 by ktaka             #+#    #+#             */
-/*   Updated: 2022/05/26 14:49:18 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:43:53 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static size_t	count_digit(unsigned int n);
+static size_t	count_digit_base(unsigned int num, unsigned int base);
 
-char	*ft_uitoa(unsigned int n)
+char	*ft_uitoa_base(int n, unsigned int base)
 {
+	const char		digs[16] = {'0', '1', '2', '3', '4', '5', \
+		'6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 	size_t			digit_count;
 	char			*ret;
+	unsigned int	num;
 
-	digit_count = count_digit(n);
+	num = n;
+	digit_count = count_digit_base(num, base);
 	ret = (char *)malloc((digit_count + 1) * sizeof(char));
 	if (ret == NULL)
 		return (NULL);
 	ret[digit_count--] = '\0';
-	if (n == 0)
+	if (num == 0)
 		ret[0] = '0';
-	while (digit_count >= 0 && n != 0)
+	while (digit_count >= 0 && num != 0)
 	{
-		ret[digit_count--] = n % 10 + '0';
-		n /= 10;
+		ret[digit_count--] = digs[num % base];
+		num /= base;
 	}
 	return (ret);
 }
 
-size_t	count_digit(unsigned int n)
+size_t	count_digit_base(unsigned int num, unsigned int base)
 {
 	size_t		count;
 
 	count = 1;
-	while (n >= 10)
+	while (num >= base)
 	{
-		n /= 10;
+		num /= base;
 		count++;
 	}
 	return (count);
 }
-
-/* #include <stdio.h> */
-
-/* int	main(void) */
-/* { */
-/* 	printf("%s\n", ft_uitoa(0)); */
-/* 	printf("%s\n", ft_uitoa(1)); */
-/* 	printf("4294967295: %s\n", ft_uitoa(-1)); */
-/* 	printf("%s\n", ft_uitoa(2147483647)); */
-/* 	printf("2147483648: %s\n", ft_uitoa(-2147483648)); */
-/* 	printf("%s\n", ft_uitoa(4294967295)); */
-/* } */

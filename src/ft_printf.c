@@ -6,18 +6,19 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/26 15:23:40 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 15:48:15 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
 	int			print_count;
 	char		*arg;
-	uint64_t	address;
+	/* int64_t		address; */
 	char		arg_c;
 	char		*arg_to_free;
 
@@ -43,14 +44,10 @@ int	ft_printf(const char *fmt, ...)
 					arg = (char *)"(null)";
 				print_count = ft_printstr(arg, print_count);
 			}
-			else if (*fmt == 'p')
-			{
-				address = (uint64_t)va_arg(ap, void *);
-				arg = ft_itoa_base(address, 16);
-				print_count = ft_printstr("0x", print_count);
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-			}
+			/* else if (*fmt == 'p') */
+			/* { */
+			/* 	address = (int64_t)va_arg(ap, void *); */
+			/* } */
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
 				arg = ft_itoa(va_arg(ap, int));
@@ -59,19 +56,19 @@ int	ft_printf(const char *fmt, ...)
 			}
 			else if (*fmt == 'u')
 			{
-				arg = ft_uitoa(va_arg(ap, unsigned int));
+				arg = ft_uitoa_base(va_arg(ap, unsigned int), 10);
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
 			}
 			else if (*fmt == 'x')
 			{
-				arg = ft_itoa_base(va_arg(ap, int), 16);
+				arg = ft_uitoa_base(va_arg(ap, int), 16);
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
 			}
 			else if (*fmt == 'X')
 			{
-				arg = ft_itoa_base(va_arg(ap, int), 16);
+				arg = ft_uitoa_base(va_arg(ap, int), 16);
 				arg_to_free = arg;
 				arg = ft_toupper_string(arg);
 				print_count = ft_printstr(arg, print_count);
@@ -89,45 +86,46 @@ int	ft_printf(const char *fmt, ...)
 	return (print_count);
 }
 
-#include <stdio.h>
+/* #include <stdio.h> */
 
-int	main(void)
-{
-	int	*p;
-	int	*q;
-	p = (int*)-1;
+/* int	main(void) */
+/* { */
+/* 	int	*p; */
+/* 	int	*q; */
+/* 	p = (int*)-1; */
 
-	printf("or: %p \n", p);
-	ft_printf("ft: %p \n", p);
-	p = (int*)1;
-	printf("or: %p \n", p);
-	ft_printf("ft: %p \n", p);
-	p = (int*)15;
-	printf("or: %p \n", p);
-	ft_printf("ft: %p \n", p);
-	p = (int*)16;
-	printf("or: %p \n", p);
-	ft_printf("ft: %p \n", p);
-	p = (int*)17;
-	printf("or: %p \n", p);
-	ft_printf("ft: %p \n", p);
-	p = (int*)LONG_MIN;
-	q = (int*)LONG_MAX;
-	printf("or: %p %p \n", p, q);
-	ft_printf("ft: %p %p \n", p, q);
-	p = (int*)INT_MIN;
-	q = (int*)INT_MAX;
-	printf("or: %p %p \n", p, q);
-	ft_printf("ft: %p %p \n", p, q);
-	p = (int*)ULONG_MAX;
-	q = (int*)-ULONG_MAX;
-	printf("or: %p %p \n", p, q);
-	ft_printf("ft: %p %p \n", p, q);
-	p = (int*)0;
-	q = (int*)0;
-	printf("or: %p %p \n", p, q);
-	ft_printf("ft: %p %p \n", p, q);
-}
+/* 	printf("or: %p \n", p); */
+/* 	ft_printf("ft: %p \n", p); */
+/* 	p = (int*)1; */
+/* 	printf("or: %p \n", p); */
+/* 	ft_printf("ft: %p \n", p); */
+/* 	p = (int*)15; */
+/* 	printf("or: %p \n", p); */
+/* 	ft_printf("ft: %p \n", p); */
+/* 	p = (int*)16; */
+/* 	printf("or: %p \n", p); */
+/* 	ft_printf("ft: %p \n", p); */
+/* 	p = (int*)17; */
+/* 	printf("or: %p \n", p); */
+/* 	ft_printf("ft: %p \n", p); */
+/* 	p = (int*)LONG_MIN; */
+/* 	q = (int*)LONG_MAX; */
+/* 	printf("or: %p %p \n", p, q); */
+/* 	ft_printf("ft: %p %p \n", p, q); */
+/* 	p = (int*)INT_MIN; */
+/* 	q = (int*)INT_MAX; */
+/* 	printf("or: %p %p \n", p, q); */
+/* 	ft_printf("ft: %p %p \n", p, q); */
+/* 	p = (int*)ULONG_MAX; */
+/* 	q = (int*)-ULONG_MAX; */
+/* 	printf("or: %p %p \n", p, q); */
+/* 	ft_printf("ft: %p %p \n", p, q); */
+/* 	p = (int*)0; */
+/* 	q = (int*)0; */
+/* 	printf("or: %p %p \n", p, q); */
+/* 	ft_printf("ft: %p %p \n", p, q); */
+/* } */
+
 /* 	char  *a = NULL; */
 /* 	int	  ret = 0; */
 /* 	char  *str = "Hello"; */

@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/25 21:28:50 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/26 15:48:50 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,7 @@ INCLUDESDIR := ./includes
 SRCSDIR := ./src/
 
 SRCS := ft_printf.c \
-	ft_itoa_base.c \
-	ft_uitoa.c \
+	ft_uitoa_base.c \
 	ft_toupper_string.c \
 	ft_printstr.c \
 	ft_join_address.c \
