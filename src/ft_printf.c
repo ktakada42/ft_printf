@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/26 14:49:48 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/26 14:52:54 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@ int	ft_printf(const char *fmt, ...)
 	while (*fmt != '\0')
 	{
 		if (*fmt != '%')
-		{
-			write(1, fmt, 1);
-			print_count++;
-		}
+			print_count += write(1, fmt, 1);
 		else
 		{
 			fmt++;
@@ -50,9 +47,11 @@ int	ft_printf(const char *fmt, ...)
 			{
 				address = (intptr_t)va_arg(ap, void *);
 				arg = ft_itoa_base(address, 16);
+				arg_to_free = arg;
 				arg = ft_join_address(arg);
 				print_count = ft_printstr(arg, print_count);
 				free(arg);
+				free(arg_to_free);
 			}
 			else if (*fmt == 'd' || *fmt == 'i')
 			{
@@ -82,14 +81,9 @@ int	ft_printf(const char *fmt, ...)
 				free(arg_to_free);
 			}
 			else if (*fmt == '%')
-			{
-				write(1, fmt, 1);
-				print_count++;
-			}
+				print_count += write(1, fmt, 1);
 			else
-			{
 				return (-1);
-			}
 		}
 		fmt++;
 	}
