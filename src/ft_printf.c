@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/27 17:52:21 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:59:26 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 
 static int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt);
 
-static int	ft_printf_specifier_pdiuxupperx(va_list *ap, int *print_count, const char *fmt);
+static int	ft_printf_specifier_pdiu(va_list *ap, int *print_count, const char *fmt);
+
+static int	ft_printf_specifier_xupperx(va_list *ap, int *print_count, const char *fmt);
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -33,8 +35,10 @@ int	ft_printf(const char *fmt, ...)
 			fmt++;
 			if (*fmt == 'c' || *fmt == 's' || *fmt == '%')
 				print_count = ft_printf_specifier_cspercent(&ap, &print_count, fmt);
-			else if (*fmt == 'p' || *fmt == 'd' || *fmt == 'i' || *fmt == 'u' || *fmt == 'x' || *fmt == 'X')
-				print_count = ft_printf_specifier_pdiuxupperx(&ap, &print_count, fmt);
+			else if (*fmt == 'p' || *fmt == 'd' || *fmt == 'i' || *fmt == 'u')
+				print_count = ft_printf_specifier_pdiu(&ap, &print_count, fmt);
+			else if (*fmt == 'x' || *fmt == 'X')
+				print_count = ft_printf_specifier_xupperx(&ap, &print_count, fmt);
 			else
 				return (-1);
 		}
@@ -66,15 +70,13 @@ int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt
 	return (*print_count);
 }
 
-int	ft_printf_specifier_pdiuxupperx(va_list *ap, int *print_count, const char *fmt)
+int	ft_printf_specifier_pdiu(va_list *ap, int *print_count, const char *fmt)
 {
 	int64_t	address;
 	char	*arg;
-	char	*tmp_to_free;
 
 	address = 0;
 	arg = NULL;
-	tmp_to_free = NULL;
 	if (*fmt == 'p')
 	{
 		address = (int64_t)va_arg(*ap, void *);
@@ -92,7 +94,18 @@ int	ft_printf_specifier_pdiuxupperx(va_list *ap, int *print_count, const char *f
 		arg = ft_uitoa_base(va_arg(*ap, unsigned int), 10);
 		*print_count = ft_printstr(arg, *print_count);
 	}
-	else if (*fmt == 'x')
+	free (arg);
+	return (*print_count);
+}
+
+int	ft_printf_specifier_xupperx(va_list *ap, int *print_count, const char *fmt)
+{
+	char	*arg;
+	char	*tmp_to_free;
+
+	arg = NULL;
+	tmp_to_free = NULL;
+	if (*fmt == 'x')
 	{
 		arg = ft_uitoa_base(va_arg(*ap, int), 16);
 		*print_count = ft_printstr(arg, *print_count);
