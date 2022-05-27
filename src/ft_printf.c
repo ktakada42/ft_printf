@@ -6,21 +6,21 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/27 17:41:49 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:52:21 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <stdint.h>
 
 static int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt);
+
+static int	ft_printf_specifier_pdiuxupperx(va_list *ap, int *print_count, const char *fmt);
 
 int	ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
 	int			print_count;
-	char		*arg;
-	int64_t		address;
-	char		*arg_to_free;
 
 	va_start(ap, fmt);
 	print_count = 0;
@@ -32,44 +32,9 @@ int	ft_printf(const char *fmt, ...)
 		{
 			fmt++;
 			if (*fmt == 'c' || *fmt == 's' || *fmt == '%')
-			{
 				print_count = ft_printf_specifier_cspercent(&ap, &print_count, fmt);
-			}
-			else if (*fmt == 'p')
-			{
-				address = (int64_t)va_arg(ap, void *);
-				arg = ft_int64tohex(address);
-				print_count = ft_printstr("0x", print_count);
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-			}
-			else if (*fmt == 'd' || *fmt == 'i')
-			{
-				arg = ft_itoa(va_arg(ap, int));
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-			}
-			else if (*fmt == 'u')
-			{
-				arg = ft_uitoa_base(va_arg(ap, unsigned int), 10);
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-			}
-			else if (*fmt == 'x')
-			{
-				arg = ft_uitoa_base(va_arg(ap, int), 16);
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-			}
-			else if (*fmt == 'X')
-			{
-				arg = ft_uitoa_base(va_arg(ap, int), 16);
-				arg_to_free = arg;
-				arg = ft_toupper_string(arg);
-				print_count = ft_printstr(arg, print_count);
-				free(arg);
-				free(arg_to_free);
-			}
+			else if (*fmt == 'p' || *fmt == 'd' || *fmt == 'i' || *fmt == 'u' || *fmt == 'x' || *fmt == 'X')
+				print_count = ft_printf_specifier_pdiuxupperx(&ap, &print_count, fmt);
 			else
 				return (-1);
 		}
@@ -98,6 +63,49 @@ int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt
 	}
 	else if (*fmt == '%')
 		*print_count += write(1, fmt, 1);
+	return (*print_count);
+}
+
+int	ft_printf_specifier_pdiuxupperx(va_list *ap, int *print_count, const char *fmt)
+{
+	int64_t	address;
+	char	*arg;
+	char	*tmp_to_free;
+
+	address = 0;
+	arg = NULL;
+	tmp_to_free = NULL;
+	if (*fmt == 'p')
+	{
+		address = (int64_t)va_arg(*ap, void *);
+		arg = ft_int64tohex(address);
+		*print_count = ft_printstr("0x", *print_count);
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	else if (*fmt == 'd' || *fmt == 'i')
+	{
+		arg = ft_itoa(va_arg(*ap, int));
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	else if (*fmt == 'u')
+	{
+		arg = ft_uitoa_base(va_arg(*ap, unsigned int), 10);
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	else if (*fmt == 'x')
+	{
+		arg = ft_uitoa_base(va_arg(*ap, int), 16);
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	else if (*fmt == 'X')
+	{
+		arg = ft_uitoa_base(va_arg(*ap, int), 16);
+		tmp_to_free = arg;
+		arg = ft_toupper_string(arg);
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	free (arg);
+	free (tmp_to_free);
 	return (*print_count);
 }
 /* #include <stdio.h> */
