@@ -6,11 +6,13 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/27 13:41:25 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:41:49 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+
+static int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt);
 
 int	ft_printf(const char *fmt, ...)
 {
@@ -18,7 +20,6 @@ int	ft_printf(const char *fmt, ...)
 	int			print_count;
 	char		*arg;
 	int64_t		address;
-	char		arg_c;
 	char		*arg_to_free;
 
 	va_start(ap, fmt);
@@ -30,18 +31,9 @@ int	ft_printf(const char *fmt, ...)
 		else
 		{
 			fmt++;
-			if (*fmt == 'c')
+			if (*fmt == 'c' || *fmt == 's' || *fmt == '%')
 			{
-				arg_c = va_arg(ap, int);
-				write(1, &arg_c, 1);
-				print_count++;
-			}
-			else if (*fmt == 's')
-			{
-				arg = va_arg(ap, char *);
-				if (arg == NULL)
-					arg = (char *)"(null)";
-				print_count = ft_printstr(arg, print_count);
+				print_count = ft_printf_specifier_cspercent(&ap, &print_count, fmt);
 			}
 			else if (*fmt == 'p')
 			{
@@ -78,8 +70,6 @@ int	ft_printf(const char *fmt, ...)
 				free(arg);
 				free(arg_to_free);
 			}
-			else if (*fmt == '%')
-				print_count += write(1, fmt, 1);
 			else
 				return (-1);
 		}
@@ -89,6 +79,27 @@ int	ft_printf(const char *fmt, ...)
 	return (print_count);
 }
 
+int	ft_printf_specifier_cspercent(va_list *ap, int *print_count, const char *fmt)
+{
+	char		*arg;
+	char		arg_c;
+
+	if (*fmt == 'c')
+	{
+		arg_c = va_arg(*ap, int);
+		*print_count += write(1, &arg_c, 1);
+	}
+	else if (*fmt == 's')
+	{
+		arg = va_arg(*ap, char *);
+		if (arg == NULL)
+			arg = (char *)"(null)";
+		*print_count = ft_printstr(arg, *print_count);
+	}
+	else if (*fmt == '%')
+		*print_count += write(1, fmt, 1);
+	return (*print_count);
+}
 /* #include <stdio.h> */
 
 /* int	main(void) */

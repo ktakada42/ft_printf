@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/26 17:13:52 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 17:30:52 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/includes/libft.h"
-
-typedef struct s_flag
-{
-	int	flag[5];
-	int	field;
-	int	precision;
-	int	modifier;
-	int	specifier;
-}	t_flag;
 
 int		ft_printf(const char *fmt, ...);
 char	*ft_uitoa_base(int n, unsigned int base);
