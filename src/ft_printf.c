@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/27 18:15:39 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 18:17:56 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,4 +128,5 @@ int	print_spec_xX(va_list *ap, int *put_count, const char *fmt)
 int	main(void)
 {
 	assert (printf("%s\n", NULL) == ft_printf("%s\n", NULL));
+	assert (printf("%p\n", NULL) == ft_printf("%p\n", NULL));
 }
