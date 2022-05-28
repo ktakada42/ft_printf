@@ -6,12 +6,11 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/27 18:17:56 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/27 20:16:39 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdint.h>
 
 static int	print_spec_cspercent(va_list *ap, int *put_count, const char *fmt);
 
@@ -127,6 +126,7 @@ int	print_spec_xX(va_list *ap, int *put_count, const char *fmt)
 
 int	main(void)
 {
-	assert (printf("%s\n", NULL) == ft_printf("%s\n", NULL));
-	assert (printf("%p\n", NULL) == ft_printf("%p\n", NULL));
+	/* assert (printf("%s\n", NULL) == ft_printf("%s\n", NULL)); */
+	/* assert (printf("%p\n", NULL) == ft_printf("%p\n", NULL)); */
+	ft_printf("%d\n", 9999999999);
 }
