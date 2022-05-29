@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 17:01:27 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/29 00:59:14 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/29 12:59:44 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 int	main(void)
 {
-	char	*s;
+	/* char	*s; */
 	int		ret;
 
-	s = (char *)malloc(sizeof(char) * INT_MAX + 1);
-	s[INT_MAX] = '\0';
-	memset(s, 'a', INT_MAX);
-	s[INT_MAX - 3] = '\0';
-	ret = printf("%s%s", "ab", s);
+	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
+	/* s[INT_MAX] = '\0'; */
+	/* memset(s, 'a', INT_MAX); */
+	/* s[INT_MAX - 3] = '\0'; */
+	ret = printf("%s");
 	printf("\n\n%d\n", ret);
 }
 
