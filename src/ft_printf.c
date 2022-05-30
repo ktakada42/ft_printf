@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 13:20:54 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:09:46 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,27 @@ static bool	is_specifier_valid(const char *fmt);
 int	ft_printf(const char *fmt, ...)
 {
 	va_list		ap;
-	int			put_count;
+	int			print_count;
 
 	if (fmt == NULL)
 		return (-1);
 	va_start(ap, fmt);
-	put_count = 0;
+	print_count = 0;
 	while (*fmt != '\0')
 	{
 		if (*fmt != '%')
-			put_count += write(1, fmt, 1);
+			print_count += write(1, fmt, 1);
 		else
 		{
 			if (is_specifier_valid(++fmt))
-				put_count += put_specifier(fmt, &ap);
+				print_count += ft_vprintf(fmt, &ap);
 			else
 				return (-1);
 		}
 		fmt++;
 	}
 	va_end(ap);
-	return (put_count);
+	return (print_count);
 }
 
 bool	is_specifier_valid(const char *fmt)

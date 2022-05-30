@@ -6,7 +6,7 @@
 #    By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/21 15:10:14 by ktakada           #+#    #+#              #
-#    Updated: 2022/05/30 13:04:52 by ktakada          ###   ########.fr        #
+#    Updated: 2022/05/30 15:10:44 by ktakada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCLUDESDIR := ./includes
 SRCSDIR := ./src/
 
 SRCS := ft_printf.c \
-	put_specifier.c \
+	ft_vprintf.c \
 	ft_uitoa_base.c \
 	ft_toupper_string.c \
 	ft_int64tohex.c \
