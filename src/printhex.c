@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:56 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:54:01 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:11:14 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static int	count_digit(unsigned int u_num);
 
 int	printhex(unsigned int u_num, const char *fmt)
 {
-	int				digit_count;
-	int				print_count;
-	int				print_num;
-	bool			upper;
+	int		digit_count;
+	int		print_count;
+	int		print_num;
+	bool	upper;
 
 	digit_count = count_digit(u_num);
 	print_count = 0;

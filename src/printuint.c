@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:42:37 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:55:51 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:11:43 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@ static int	get_digit_count(unsigned int u_num);
 
 int	printuint(unsigned int u_num)
 {
-	int		digit_count;
-	int		print_count;
-	int		print_num;
+	int	digit_count;
+	int	print_count;
+	int	print_num;
 
 	digit_count = get_digit_count(u_num);
 	print_count = 0;

@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:42:37 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 23:54:26 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:11:28 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	printint(int num)
 
 int	get_digit_count(int num)
 {
-	int		digit_count;
+	int	digit_count;
 
 	if (num == 0)
 		return (1);

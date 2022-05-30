@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:40:05 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:10:26 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ static bool	is_specifier_valid(const char *fmt);
 
 int	ft_printf(const char *fmt, ...)
 {
-	va_list		ap;
-	int			print_count;
+	va_list	ap;
+	int		print_count;
 
 	if (fmt == NULL)
 		return (-1);
