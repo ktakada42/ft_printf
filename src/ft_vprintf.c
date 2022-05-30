@@ -6,28 +6,22 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 17:07:40 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:23:01 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int			ft_vprintf(const char *fmt, va_list *ap);
-
 static int	print_cspercent(const char *fmt, va_list *ap);
 
-static int	print_pdiu(const char *fmt, va_list *ap);
-
-static int	print_xupperx(const char *fmt, va_list *ap);
+static int	print_pdiuxX(const char *fmt, va_list *ap);
 
 int	ft_vprintf(const char *fmt, va_list *ap)
 {
 	if (*fmt == 'c' || *fmt == 's' || *fmt == '%')
 		return (print_cspercent(fmt, ap));
-	else if (*fmt == 'p' || *fmt == 'd' || *fmt == 'i' || *fmt == 'u')
-		return (print_pdiu(fmt, ap));
 	else
-		return (print_xupperx(fmt, ap));
+		return (print_pdiuxX(fmt, ap));
 }
 
 int	print_cspercent(const char *fmt, va_list *ap)
@@ -53,51 +47,17 @@ int	print_cspercent(const char *fmt, va_list *ap)
 	return (print_count);
 }
 
-int	print_pdiu(const char *fmt, va_list *ap)
+int	print_pdiuxX(const char *fmt, va_list *ap)
 {
 	int				print_count;
-	int64_t			address;
-	int				arg_i;
-	unsigned int	arg_u;
 
 	if (*fmt == 'p')
-	{
-		address = (int64_t)va_arg(*ap, void *);
-		print_count = printaddress(address);
-	}
+		print_count = printaddress((int64_t)va_arg(*ap, void *));
 	else if (*fmt == 'd' || *fmt == 'i')
-	{
-		arg_i = va_arg(*ap, int);
-		print_count = printint(arg_i);
-	}
+		print_count = printint(va_arg(*ap, int));
+	else if (*fmt == 'u')
+		print_count = printuint(va_arg(*ap, unsigned int));
 	else
-	{
-		arg_u = va_arg(*ap, unsigned int);
-		print_count = printuint(arg_u);
-	}
-	return (print_count);
-}
-
-int	print_xupperx(const char *fmt, va_list *ap)
-{
-	int		print_count;
-	char	*arg;
-	char	*tmp_to_free;
-
-	tmp_to_free = NULL;
-	if (*fmt == 'x')
-	{
-		arg = ft_uitoa_base(va_arg(*ap, int), 16);
-		print_count = printstr(arg);
-	}
-	else
-	{
-		arg = ft_uitoa_base(va_arg(*ap, int), 16);
-		tmp_to_free = arg;
-		arg = ft_toupper_string(arg);
-		print_count = printstr(arg);
-	}
-	free (arg);
-	free (tmp_to_free);
+		print_count = printhex(va_arg(*ap, int), fmt);
 	return (print_count);
 }

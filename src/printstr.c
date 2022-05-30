@@ -1,13 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   printstr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/28 16:01:55 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/28 16:02:22 by ktakada          ###   ########.fr       */
+/*   Created: 2022/05/31 00:23:37 by ktakada           #+#    #+#             */
+/*   Updated: 2022/05/31 00:23:59 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_putnbr_base(int n, int base);
+#include "../includes/ft_printf.h"
+
+int	printstr(char *str)
+{
+	size_t	strlen;
+
+	strlen = ft_strlen(str);
+	return (write(1, str, strlen));
+}

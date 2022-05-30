@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:09:46 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:19:07 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,21 +48,3 @@ bool	is_specifier_valid(const char *fmt)
 		return (true);
 	return (false);
 }
-
-/* #include <stdio.h> */
-/* #include <assert.h> */
-
-/* int	main(void) */
-/* { */
-/* 	char	*fmt = "%d"; */
-/* 	if (is_specifier_valid(fmt)) */
-/* 	{ */
-/* 		printf("%c\n", *fmt); */
-/* 		printf("OK\n"); */
-/* 	} */
-/* 	else */
-/* 	{ */
-/* 		printf("%c\n", *fmt); */
-/* 		printf("NG\n"); */
-/* 	} */
-/* } */
