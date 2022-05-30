@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:18:23 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:02:50 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int		ft_printf(const char *fmt, ...);
 int		ft_vprintf(const char *fmt, va_list *ap);
 int		printstr(char *str);
 int		printint(int num);
-int		printuint(unsigned int num);
-int		printaddress(uint64_t num);
-int		printhex(int num, const char *fmt);
-size_t	recursive_power(unsigned int num, int power);
+int		printuint(unsigned int u_num);
+int		printaddress(uint64_t u_64num);
+int		printhex(unsigned int u_num, const char *fmt);
+size_t	recursive_power(size_t num, int power);
 
 #endif

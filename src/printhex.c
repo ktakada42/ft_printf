@@ -6,24 +6,23 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:56 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:32:14 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:54:01 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static int	count_digit(unsigned int n);
+static int	count_digit(unsigned int u_num);
 
-int	printhex(int num, const char *fmt)
+int	printhex(unsigned int u_num, const char *fmt)
 {
-	unsigned int	u_num;
 	int				digit_count;
 	int				print_count;
 	int				print_num;
 	bool			upper;
 
-	u_num = (unsigned int)num;
 	digit_count = count_digit(u_num);
+	print_count = 0;
 	upper = false;
 	if (*fmt == 'X')
 		upper = true;
@@ -37,22 +36,22 @@ int	printhex(int num, const char *fmt)
 			print_num += 'A' - 10;
 		else
 			print_num += 'a' - 10;
-		print_count = write(1, &print_num, 1);
+		print_count += write(1, &print_num, 1);
 		u_num %= recursive_power(16, digit_count);
 	}
 	return (print_count);
 }
 
-int	count_digit(unsigned int n)
+int	count_digit(unsigned int u_num)
 {
 	int	digit_count;
 
-	if (n == 0)
+	if (u_num == 0)
 		return (1);
 	digit_count = 0;
-	while (n != 0)
+	while (u_num != 0)
 	{
-		n /= 16;
+		u_num /= 16;
 		digit_count++;
 	}
 	return (digit_count);

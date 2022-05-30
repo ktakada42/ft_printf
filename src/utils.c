@@ -6,13 +6,13 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 11:49:55 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:24:02 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 01:02:11 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t	recursive_power(unsigned int num, int power)
+size_t	recursive_power(size_t num, int power)
 {
 	size_t	ret;
 
