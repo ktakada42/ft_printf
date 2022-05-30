@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:56 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 23:54:35 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:27:56 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	printaddress(uint64_t num)
 		if (0 <= print_num && print_num <= 9)
 			print_num += '0';
 		else
-			print_num += 87;
+			print_num += 'a' - 10;
 		print_count += write(1, &print_num, 1);
 		u_64num %= recursive_power(16, digit_count);
 	}
