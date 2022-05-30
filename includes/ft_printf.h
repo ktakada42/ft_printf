@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:10:24 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:44:53 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,5 @@ char	*ft_int64tohex(int64_t n);
 char	*ft_toupper_string(char	*str);
 int		printstr(char *str);
 int		printint(int num);
-int		recursive_power(int num, int power);
-int		get_digit_count(int num);
 
 #endif
