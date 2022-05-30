@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:56 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 16:48:33 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:07:50 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	printaddress(uint64_t num)
 
 	u_64num = num;
 	digit_count = count_digit(u_64num);
-	print_count = 0;
+	print_count = printstr("0x");
 	while (digit_count > 0)
 	{
 		digit_count--;

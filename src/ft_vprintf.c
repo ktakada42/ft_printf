@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 16:49:27 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 17:07:40 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,8 +63,7 @@ int	print_pdiu(const char *fmt, va_list *ap)
 	if (*fmt == 'p')
 	{
 		address = (int64_t)va_arg(*ap, void *);
-		print_count = printstr("0x");
-		print_count += printaddress(address);
+		print_count = printaddress(address);
 	}
 	else if (*fmt == 'd' || *fmt == 'i')
 	{
