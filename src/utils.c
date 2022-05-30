@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 11:49:55 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:48:47 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:46:27 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ int	printstr(char *str)
 	return (write(1, str, strlen));
 }
 
-int	recursive_power(int num, int power)
+size_t	recursive_power(unsigned int num, int power)
 {
-	int	ret;
+	size_t	ret;
 
 	if (power < 0)
 		return (0);

@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:53:23 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:47:38 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include "../libft/includes/libft.h"
@@ -28,6 +29,7 @@ char	*ft_toupper_string(char	*str);
 int		printstr(char *str);
 int		printint(int num);
 int		printuint(unsigned int num);
-int		recursive_power(int num, int power);
+int		printaddress(uint64_t num);
+size_t	recursive_power(unsigned int num, int power);
 
 #endif

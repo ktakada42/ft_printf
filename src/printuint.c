@@ -6,13 +6,13 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:42:37 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:51:08 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:23:28 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-static unsigned int	get_digit_count(unsigned int num);
+static int	get_digit_count(unsigned int num);
 
 int	printuint(unsigned int num)
 {
@@ -33,9 +33,9 @@ int	printuint(unsigned int num)
 	return (print_count);
 }
 
-unsigned int	get_digit_count(unsigned int num)
+int	get_digit_count(unsigned int num)
 {
-	int		digit_count;
+	int	digit_count;
 
 	if (num == 0)
 		return (1);

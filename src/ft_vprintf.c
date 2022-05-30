@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:53:01 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 16:49:27 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,17 +57,14 @@ int	print_pdiu(const char *fmt, va_list *ap)
 {
 	int				print_count;
 	int64_t			address;
-	char			*arg;
 	int				arg_i;
 	unsigned int	arg_u;
 
-	arg = NULL;
 	if (*fmt == 'p')
 	{
 		address = (int64_t)va_arg(*ap, void *);
-		arg = ft_int64tohex(address);
 		print_count = printstr("0x");
-		print_count += printstr(arg);
+		print_count += printaddress(address);
 	}
 	else if (*fmt == 'd' || *fmt == 'i')
 	{
@@ -79,7 +76,6 @@ int	print_pdiu(const char *fmt, va_list *ap)
 		arg_u = va_arg(*ap, unsigned int);
 		print_count = printuint(arg_u);
 	}
-	free (arg);
 	return (print_count);
 }
 
