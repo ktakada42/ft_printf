@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/29 10:46:45 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 13:04:33 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,10 @@
 # include "../libft/includes/libft.h"
 
 int		ft_printf(const char *fmt, ...);
+int		put_specifier(const char *fmt, va_list *ap);
 char	*ft_uitoa_base(int n, unsigned int base);
 char	*ft_int64tohex(int64_t n);
 char	*ft_toupper_string(char	*str);
-int		ft_printstr(char *str, int print_count);
+int		putstr(char *str);
 
 #endif
