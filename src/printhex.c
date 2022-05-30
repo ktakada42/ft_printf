@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/30 15:57:56 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:17:53 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:32:14 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	printhex(int num, const char *fmt)
 		else if (upper)
 			print_num += 'A' - 10;
 		else
-			print_num += 'a' + 10;
+			print_num += 'a' - 10;
 		print_count = write(1, &print_num, 1);
 		u_num %= recursive_power(16, digit_count);
 	}

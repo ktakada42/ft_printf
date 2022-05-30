@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:23:01 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:40:36 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 static int	print_cspercent(const char *fmt, va_list *ap);
 
-static int	print_pdiuxX(const char *fmt, va_list *ap);
+static int	print_pdiuxupperx(const char *fmt, va_list *ap);
 
 int	ft_vprintf(const char *fmt, va_list *ap)
 {
 	if (*fmt == 'c' || *fmt == 's' || *fmt == '%')
 		return (print_cspercent(fmt, ap));
 	else
-		return (print_pdiuxX(fmt, ap));
+		return (print_pdiuxupperx(fmt, ap));
 }
 
 int	print_cspercent(const char *fmt, va_list *ap)
@@ -47,7 +47,7 @@ int	print_cspercent(const char *fmt, va_list *ap)
 	return (print_count);
 }
 
-int	print_pdiuxX(const char *fmt, va_list *ap)
+int	print_pdiuxupperx(const char *fmt, va_list *ap)
 {
 	int				print_count;
 

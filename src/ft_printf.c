@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 00:19:07 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/31 00:40:05 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,3 +48,55 @@ bool	is_specifier_valid(const char *fmt)
 		return (true);
 	return (false);
 }
+
+/* #include <stdio.h> */
+
+/* int	main(void) */
+/* { */
+/* 	int	ret; */
+
+/* 	ret = printf("%X", -1); */
+/* 	printf(": %d\n", ret); */
+/* 	ft_printf("%X", -1); */
+/* 	printf(": %d\n", ret); */
+
+	/* ret = printf("%x", -1); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", -1); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", -1); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", -1); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", 16); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", 16); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", 17); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", 17); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", 99); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", 99); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", 100); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", 100); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", 101); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", 101); */
+	/* printf(": %d\n", ret); */
+
+	/* ret = printf("%x", -9); */
+	/* printf(": %d\n", ret); */
+	/* ft_printf("%x", -9); */
+	/* printf(": %d\n", ret); */
+/* } */
