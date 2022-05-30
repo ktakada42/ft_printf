@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/30 15:36:19 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/05/30 15:53:01 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,11 @@ int	print_cspercent(const char *fmt, va_list *ap)
 
 int	print_pdiu(const char *fmt, va_list *ap)
 {
-	int		print_count;
-	int64_t	address;
-	char	*arg;
-	int		arg_i;
+	int				print_count;
+	int64_t			address;
+	char			*arg;
+	int				arg_i;
+	unsigned int	arg_u;
 
 	arg = NULL;
 	if (*fmt == 'p')
@@ -75,8 +76,8 @@ int	print_pdiu(const char *fmt, va_list *ap)
 	}
 	else
 	{
-		arg = ft_uitoa_base(va_arg(*ap, unsigned int), 10);
-		print_count = printstr(arg);
+		arg_u = va_arg(*ap, unsigned int);
+		print_count = printuint(arg_u);
 	}
 	free (arg);
 	return (print_count);
