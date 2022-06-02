@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/06/02 11:52:20 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/02 12:34:58 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,12 +63,28 @@ int	main(void)
 	ret = ft_printf(NULL);
 	printf("ret:\t%d\n", ret);
 
-	printf("\n---NULL Pointer case---\n");
+	printf("\n---NULL Pointer case_1---\n");
 	ft_printf("arg:\t");
 	ret = ft_printf("%s", s);
 	printf("\n");
 	assert(printf("or:\t%s\n", s) == ft_printf("ft:\t%s\n", s));
 	printf("ret:\t%d\n", ret);
+
+	printf("\n---NULL Pointer case_2---\n");
+	ft_printf("arg:\t");
+	ret = ft_printf("%s", s);
+	printf("\n");
+	assert(printf("or:\t%p\n", s) == ft_printf("ft:\t%p\n", s));
+	printf("ret:\t%d\n", ret);
+
+	printf("\n---Non Printed character case---\n");
+	while (c < 32)
+	{
+		assert(printf("%c", c) == ft_printf("%c", c));
+		c++;
+	}
+	c = 127;
+	assert(printf("%c", c) == ft_printf("%c", c));
 
 	printf("\n---Multibyte Character case---\n");
 	s = "こんにちは";
@@ -78,7 +94,20 @@ int	main(void)
 	assert(printf("or:\t%s\n", s) == ft_printf("ft:\t%s\n", s));
 	printf("ret\t%d\n", ret);
 
-	/* printf("\n---INT_MAX case---\n"); */
+	printf("\n---INT_MAX case---\n");
+	ft_printf("num:\t");
+	ret = ft_printf("%d", INT_MAX);
+	printf("\n");
+	assert(printf("or:\t%d\n", INT_MAX) == ft_printf("ft:\t%d\n", INT_MAX));
+	printf("ret:\t%d\n", ret);
+
+	printf("\n---Overflow Integer case---\n");
+	ft_printf("num:\t");
+	ret = ft_printf("%d", 999999999999999999);
+	printf("\n");
+	printf("ret:\t%d\n", ret);
+
+	/* printf("\n---Strlen INT_MAX case---\n"); */
 	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
 	/* if (s == NULL) */
 	/* { */
@@ -91,7 +120,7 @@ int	main(void)
 	/* free(s); */
 	/* printf("%d\n", ret); */
 
-	printf("\n---INT_MAX + 2 case---\n");
+	printf("\n---Strlen INT_MAX + 2 case---\n");
 	s = (char *)malloc(sizeof(char) * INT_MAX + 3);
 	if (s == NULL)
 	{
@@ -104,7 +133,7 @@ int	main(void)
 	free(s);
 	printf("%d\n", ret);
 
-	/* printf("\n---INT_MAX * 3 case---\n"); */
+	/* printf("\n---Strlen INT_MAX * 3 case---\n"); */
 	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
 	/* if (s == NULL) */
 	/* { */
@@ -117,13 +146,8 @@ int	main(void)
 	/* free(s); */
 	/* printf("%d\n", ret); */
 
-	printf("\n---Non Printed character case---\n");
-	while (c < 32)
-	{
-		assert(printf("%c", c) == ft_printf("%c", c));
-		c++;
-	}
 	
+	printf("\n");
 	system("leaks -q a.out");
 	return (0);
 }
