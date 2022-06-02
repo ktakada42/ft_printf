@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 01:10:26 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/02 11:17:20 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,54 +49,17 @@ bool	is_specifier_valid(const char *fmt)
 	return (false);
 }
 
-/* #include <stdio.h> */
+#include <assert.h>
+#include <stdio.h>
 
-/* int	main(void) */
-/* { */
-/* 	int	ret; */
+int	main(void)
+{
+	int		ret;
+	char	*s = NULL;
 
-/* 	ret = printf("%X", -1); */
-/* 	printf(": %d\n", ret); */
-/* 	ft_printf("%X", -1); */
-/* 	printf(": %d\n", ret); */
-
-	/* ret = printf("%x", -1); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", -1); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", -1); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", -1); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", 16); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", 16); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", 17); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", 17); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", 99); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", 99); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", 100); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", 100); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", 101); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", 101); */
-	/* printf(": %d\n", ret); */
-
-	/* ret = printf("%x", -9); */
-	/* printf(": %d\n", ret); */
-	/* ft_printf("%x", -9); */
-	/* printf(": %d\n", ret); */
-/* } */
+	printf("---Format NULL case---\n");
+	ret = ft_printf(NULL);
+	printf("%d\n", ret);
+	printf("\n---NULL Pointer case---\n");
+	assert(printf("or: %s\n", s) == ft_printf("ft: %s\n", s));
+}
