@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/06/02 11:17:20 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/02 11:27:55 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,20 @@ int	main(void)
 
 	printf("---Format NULL case---\n");
 	ret = ft_printf(NULL);
-	printf("%d\n", ret);
+	printf("ret:\t%d\n", ret);
+
 	printf("\n---NULL Pointer case---\n");
-	assert(printf("or: %s\n", s) == ft_printf("ft: %s\n", s));
+	ft_printf("arg:\t");
+	ret = ft_printf("%s", s);
+	printf("\n");
+	assert(printf("or:\t%s\n", s) == ft_printf("ft:\t%s\n", s));
+	printf("ret:\t%d\n", ret);
+
+	printf("\n---Multibyte Character case---\n");
+	s = "こんにちは";
+	ft_printf("string:\t");
+	ret = ft_printf("こんにちは");
+	printf("\n");
+	assert(printf("or:\t%s\n", s) == ft_printf("ft:\t%s\n", s));
+	printf("ret\t%d\n", ret);
 }
