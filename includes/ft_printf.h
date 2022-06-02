@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:34:06 by ktakada           #+#    #+#             */
-/*   Updated: 2022/05/31 01:02:50 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/02 11:58:58 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
+# include <stddef.h>
 # include <stdint.h>
 # include <stdlib.h>
 # include <unistd.h>
