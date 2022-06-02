@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/06/02 11:27:55 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/02 11:52:20 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,13 @@ bool	is_specifier_valid(const char *fmt)
 
 #include <assert.h>
 #include <stdio.h>
+#include <string.h>
 
 int	main(void)
 {
-	int		ret;
-	char	*s = NULL;
+	int				ret;
+	unsigned char	c = 0;
+	char			*s = NULL;
 
 	printf("---Format NULL case---\n");
 	ret = ft_printf(NULL);
@@ -75,4 +77,53 @@ int	main(void)
 	printf("\n");
 	assert(printf("or:\t%s\n", s) == ft_printf("ft:\t%s\n", s));
 	printf("ret\t%d\n", ret);
+
+	/* printf("\n---INT_MAX case---\n"); */
+	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
+	/* if (s == NULL) */
+	/* { */
+	/* 	printf("Could not allocate\n"); */
+	/* 	exit(1); */
+	/* } */
+	/* s[INT_MAX] = '\0'; */
+	/* memset(s, 'a', INT_MAX); */
+	/* ret = ft_printf("%s", s); */
+	/* free(s); */
+	/* printf("%d\n", ret); */
+
+	printf("\n---INT_MAX + 2 case---\n");
+	s = (char *)malloc(sizeof(char) * INT_MAX + 3);
+	if (s == NULL)
+	{
+		printf("Could not allocate\n");
+		exit(1);
+	}
+	s[2147483649] = '\0';
+	memset(s, 'a', 2147483649);
+	ret = ft_printf("%s", s);
+	free(s);
+	printf("%d\n", ret);
+
+	/* printf("\n---INT_MAX * 3 case---\n"); */
+	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
+	/* if (s == NULL) */
+	/* { */
+	/* 	printf("Could not allocate\n"); */
+	/* 	exit(1); */
+	/* } */
+	/* s[INT_MAX] = '\0'; */
+	/* memset(s, 'a', INT_MAX); */
+	/* ret = ft_printf("%s, %s, %s", s, s, s); */
+	/* free(s); */
+	/* printf("%d\n", ret); */
+
+	printf("\n---Non Printed character case---\n");
+	while (c < 32)
+	{
+		assert(printf("%c", c) == ft_printf("%c", c));
+		c++;
+	}
+	
+	system("leaks -q a.out");
+	return (0);
 }
