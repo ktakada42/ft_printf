@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/06/02 12:34:58 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/05 23:30:21 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ bool	is_specifier_valid(const char *fmt)
 	return (false);
 }
 
+/*
 #include <assert.h>
 #include <stdio.h>
 #include <string.h>
@@ -101,24 +102,31 @@ int	main(void)
 	assert(printf("or:\t%d\n", INT_MAX) == ft_printf("ft:\t%d\n", INT_MAX));
 	printf("ret:\t%d\n", ret);
 
+	printf("\n---INT_MIN case---\n");
+	ft_printf("num:\t");
+	ret = ft_printf("%d", INT_MIN);
+	printf("\n");
+	assert(printf("or:\t%d\n", INT_MIN) == ft_printf("ft:\t%d\n", INT_MIN));
+	printf("ret:\t%d\n", ret);
+
 	printf("\n---Overflow Integer case---\n");
 	ft_printf("num:\t");
 	ret = ft_printf("%d", 999999999999999999);
 	printf("\n");
 	printf("ret:\t%d\n", ret);
 
-	/* printf("\n---Strlen INT_MAX case---\n"); */
-	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
-	/* if (s == NULL) */
-	/* { */
-	/* 	printf("Could not allocate\n"); */
-	/* 	exit(1); */
-	/* } */
-	/* s[INT_MAX] = '\0'; */
-	/* memset(s, 'a', INT_MAX); */
-	/* ret = ft_printf("%s", s); */
-	/* free(s); */
-	/* printf("%d\n", ret); */
+	// printf("\n---Strlen INT_MAX case---\n");
+	// s = (char *)malloc(sizeof(char) * INT_MAX + 1);
+	// if (s == NULL)
+	// {
+	// 	printf("Could not allocate\n");
+	// 	exit(1);
+	// }
+	// s[INT_MAX] = '\0';
+	// memset(s, 'a', INT_MAX);
+	// ret = ft_printf("%s", s);
+	// free(s);
+	// printf("%d\n", ret);
 
 	printf("\n---Strlen INT_MAX + 2 case---\n");
 	s = (char *)malloc(sizeof(char) * INT_MAX + 3);
@@ -133,21 +141,21 @@ int	main(void)
 	free(s);
 	printf("%d\n", ret);
 
-	/* printf("\n---Strlen INT_MAX * 3 case---\n"); */
-	/* s = (char *)malloc(sizeof(char) * INT_MAX + 1); */
-	/* if (s == NULL) */
-	/* { */
-	/* 	printf("Could not allocate\n"); */
-	/* 	exit(1); */
-	/* } */
-	/* s[INT_MAX] = '\0'; */
-	/* memset(s, 'a', INT_MAX); */
-	/* ret = ft_printf("%s, %s, %s", s, s, s); */
-	/* free(s); */
-	/* printf("%d\n", ret); */
+	// printf("\n---Strlen INT_MAX * 3 case---\n");
+	// s = (char *)malloc(sizeof(char) * INT_MAX + 1);
+	// if (s == NULL)
+	// {
+	// 	printf("Could not allocate\n");
+	// 	exit(1);
+	// }
+	// s[INT_MAX] = '\0';
+	// memset(s, 'a', INT_MAX);
+	// ret = ft_printf("%s, %s, %s", s, s, s);
+	// free(s);
+	// printf("%d\n", ret);
 
-	
 	printf("\n");
 	system("leaks -q a.out");
 	return (0);
 }
+*/
