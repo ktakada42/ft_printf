@@ -6,7 +6,7 @@
 /*   By: ktakada <ktakada@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/21 15:35:20 by ktakada           #+#    #+#             */
-/*   Updated: 2022/06/05 23:30:21 by ktakada          ###   ########.fr       */
+/*   Updated: 2022/06/06 23:31:12 by ktakada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,10 @@ int	main(void)
 
 	printf("---Format NULL case---\n");
 	ret = ft_printf(NULL);
+	printf("ret:\t%d\n", ret);
+
+	printf("\n---Invalid specifier case---\n");
+	ret = ft_printf("%a", 123);
 	printf("ret:\t%d\n", ret);
 
 	printf("\n---NULL Pointer case_1---\n");
