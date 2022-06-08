@@ -3,7 +3,6 @@
 Re-implementing printf.
 ## Usage
 ```
-git clone https://github.com/ktakada42/ft_printf.git
-git submodule update --remote
+git clone --recursive https://github.com/ktakada42/ft_printf.git
 make -C ft_printf
 ```
