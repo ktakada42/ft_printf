@@ -1,6 +1,6 @@
 # libft
 ## Description
-Re-implementing printf.
+Re-implementing printf.  
 *no flag is implemented.*
 ## Usage
 ```
