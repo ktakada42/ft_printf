@@ -1,4 +1,4 @@
-# libft
+# ft_printf
 ## Description
 Re-implementing printf.  
 \*No flag is implemented.
